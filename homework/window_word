@@ -1,0 +1,37 @@
+import tkinter
+import random
+dictionary = {'anaconda': 'анаконда', 'python': 'питон', 'snake': 'змея', 'boa': 'удав'}
+word = random.choice(list(dictionary.keys()))
+
+window = tkinter.Tk()
+
+def click():
+    word1 = dictionary.get(word)
+    if entry.get() == word1:
+        result = 'Слово угадано!'
+        label.config(text = result)
+    elif entry.get() != word1:
+        result = 'Слово не угадано!'
+        label.config(text = result)
+        
+def exit():
+    window.destroy()
+        
+a = tkinter.Label(window, text = 'Случайное слово: ')
+a.pack()
+word2 = tkinter.Label(window, text = word)
+word2.pack()
+b = tkinter.Label(window, text = 'Укажите перевод слова: ')       
+b.pack()
+frame = tkinter.Frame(window)
+frame.pack()
+entry = tkinter.Entry(frame)
+entry.pack()
+label = tkinter.Label(window)
+label.pack()
+button = tkinter.Button(window, text = 'Готово!',command = click)
+button.pack()
+button1 = tkinter.Button(window, text = 'Выход',command = exit)
+button1.pack()
+
+window.mainloop()
